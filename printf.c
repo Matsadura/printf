@@ -28,17 +28,15 @@ int _printf(const char *format, ...)
 			{
 				if (format[i + 1] == spec[j].s)
 				{
+					len = spec[j].f(type);
 					spec[j].f(type);
 					i += 2;
-					if (format[i] == 's')
-					{
-						len = spec[j].f(type);
-					}
 					num += len;
 				}
 			}
 		}
 		ch(format[i]);
+		num++;
 	}
 	va_end(type);
 	return (num);

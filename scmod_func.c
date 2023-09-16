@@ -8,40 +8,42 @@
 
 int _str(va_list type)
 {
-	int len = 0;
-	char *s = va_arg(type, char *);
+    int i;
+    char *s = va_arg(type, char *);
 
-	if (s != NULL)
-	{
-		len = _strlen(s);
-		string(s);
-	}
-	return (len);
-
+    for (i = 0; s[i] != '\0'; i++)
+    {
+        write(1, &s[i], 1);
+    }
+    return (i);
 }
 
 /**
  * _char - prints a char
  * @type: the argument
+ * Return: len
  */
 
 int _char(va_list type)
 {
-	int len = 1;
+    int len = 1;
+    char c = va_arg(type, int);
 
-	ch(va_arg(type, int));
-	return (len);
+    write(1, &c, 1);
+    return (len);
 }
 
 /**
  * _mod - prints modulo sign
  * @type: the argument to print
+ * Return: len
  */
 
 int _mod(__attribute__ ((unused)) va_list type)
 {
-	int len = 1;
+    int len = 1;
+    char c = '%';
 
-	ch('%');
-	return (len);
+    write(1, &c, 1);
+    return (len);
 }
