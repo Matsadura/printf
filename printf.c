@@ -20,9 +20,12 @@ int _printf(const char *format, ...)
 
 	va_start(type, format);
 
+	if (format == NULL)
+		return (0);
+
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		for (j = 0; j < 3; j++)
+		for (j = 0; j < 4; j++)
 		{
 			if (format[i] == '%' && format[i + 1] != '\0')
 			{
