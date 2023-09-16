@@ -8,14 +8,14 @@
 
 int _str(va_list type)
 {
-    int i;
-    char *s = va_arg(type, char *);
+	int i;
+	char *s = va_arg(type, char *);
 
-    for (i = 0; s[i] != '\0'; i++)
-    {
-        write(1, &s[i], 1);
-    }
-    return (i);
+	for (i = 0; s[i] != '\0'; i++)
+	{
+		write(1, &s[i], 1);
+	}
+	return (i);
 }
 
 /**
@@ -26,11 +26,11 @@ int _str(va_list type)
 
 int _char(va_list type)
 {
-    int len = 1;
-    char c = va_arg(type, int);
+	int len = 1;
+	char c = va_arg(type, int);
 
-    write(1, &c, 1);
-    return (len);
+	write(1, &c, 1);
+	return (len);
 }
 
 /**
@@ -41,9 +41,9 @@ int _char(va_list type)
 
 int _mod(__attribute__ ((unused)) va_list type)
 {
-    int len = 1;
-    char c = '%';
+	int len = 1;
+	char c = '%';
 
-    write(1, &c, 1);
-    return (len);
+	write(1, &c, 1);
+	return (len);
 }
