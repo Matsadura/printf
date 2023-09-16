@@ -3,11 +3,21 @@
 /**
  * _str - prints a string
  * @type: the argument to print
+ * Return: len
  */
 
-void _str(va_list type)
+int _str(va_list type)
 {
-	string(va_arg(type, char *));
+	int len = 0;
+	char *s = va_arg(type, char *);
+
+	if (s != NULL)
+	{
+		len = _strlen(s);
+		string(s);
+	}
+	return (len);
+
 }
 
 /**
@@ -15,9 +25,12 @@ void _str(va_list type)
  * @type: the argument
  */
 
-void _char(va_list type)
+int _char(va_list type)
 {
+	int len = 1;
+
 	ch(va_arg(type, int));
+	return (len);
 }
 
 /**
@@ -25,7 +38,10 @@ void _char(va_list type)
  * @type: the argument to print
  */
 
-void _mod(__attribute__ ((unused)) va_list type)
+int _mod(__attribute__ ((unused)) va_list type)
 {
+	int len = 1;
+
 	ch('%');
+	return (len);
 }
