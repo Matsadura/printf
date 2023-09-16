@@ -7,7 +7,7 @@
 
 void _str(va_list type)
 {
-	string(va_arg(type, char*));
+	string(va_arg(type, char *));
 }
 
 /**
@@ -17,7 +17,7 @@ void _str(va_list type)
 
 void _char(va_list type)
 {
-	ch(va_arg(type, char));
+	ch(va_arg(type, int));
 }
 
 /**
@@ -25,7 +25,7 @@ void _char(va_list type)
  * @type: the argument to print
  */
 
-void _mod(va_list type)
+void _mod(__attribute__ ((unused)) va_list type)
 {
-	ch(va_arg(type, char));
+	ch('%');
 }
