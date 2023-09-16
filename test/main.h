@@ -18,12 +18,9 @@ typedef struct format
 } data;
 
 
-int _strlen(char *s);
 int _char(va_list type);
 int _str(va_list type);
 int _mod(va_list type);
-int ch(char c);
-void string(char *s);
 int _printf(const char *format, ...);
 
 
