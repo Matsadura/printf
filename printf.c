@@ -42,8 +42,15 @@ int _printf(const char *format, ...)
 						write(1, &format[i], 1);
 						write(1, &format[i + 1], 1);
 						i += 1;
+						num += 2;
 						break;
 				}
+			}
+			else
+			{
+				write(1, &format[i], 1);
+				num++;
+				i++;
 			}
 		}
 		else
