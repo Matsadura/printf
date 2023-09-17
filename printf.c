@@ -13,9 +13,9 @@ int _printf(const char *format, ...)
 	int i, num = 0, len = 0;
 	va_list type;
 
-	va_start(type, format);
 	if (format == NULL)
 		return (-1);
+	va_start(type, format);
 	for (i = 0; format[i] != '\0'; i++)
 	{
 		if (format[i] == '%')
