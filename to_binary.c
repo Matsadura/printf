@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_binary - prints int as a bianry number
+ * print_binary - prints int as a bianry string
  *
  * @n:  given number as unsigned int
  *
