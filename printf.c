@@ -10,7 +10,7 @@ void test(void);
 
 int _printf(const char *format, ...)
 {
-	int i, num = 0, len = 0;
+	int i, num = 0, len = 0, n;
 	va_list type;
 
 	if (format == NULL)
@@ -40,6 +40,12 @@ int _printf(const char *format, ...)
 					break;
 				case '%':
 					len = _mod(type);
+					i++;
+					num += len;
+					break;
+				case 'd':
+					n = va_arg(type, int);
+					len = print_number(n);
 					i++;
 					num += len;
 					break;
