@@ -4,7 +4,6 @@ void test(void);
 
 /**
  * _printf - prints everything
- *
  * @format: first string
  * Return: the length of the printed content
  */
@@ -46,9 +45,7 @@ int _printf(const char *format, ...)
 					break;
 				default:
 					write(1, &format[i], 1);
-					write(1, &format[i + 1], 1);
-					i += 1;
-					num += 2;
+					num++;
 					break;
 			}
 		}
