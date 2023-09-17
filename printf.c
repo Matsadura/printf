@@ -49,6 +49,13 @@ int _printf(const char *format, ...)
 					i++;
 					num += len;
 					break;
+				case 'i':
+					n = va_arg(type, int);
+					len = print_number(n);
+					i++;
+					num += len;
+					break;
+
 				default:
 					write(1, &format[i], 1);
 					num++;
