@@ -21,38 +21,35 @@ int _printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			if (format[i + 1] != '\0')
-			{
-				switch (format[i + 1])
-				{
-					case 's':
-						len = _str(type);
-						i++;
-						num += len;
-						break;
-					case 'c':
-						len = _char(type);
-						i++;
-						num += len;
-						break;
-					case '%':
-						len = _mod(type);
-						i++;
-						num += len;
-						break;
-					default:
-						write(1, &format[i], 1);
-						write(1, &format[i + 1], 1);
-						i += 1;
-						num += 2;
-						break;
-				}
-			}
-			else
+			if (format[i + 1] == '\0')
 			{
 				write(1, &format[i], 1);
 				num++;
-				i++;
+				continue;
+			}
+			switch (format[i + 1])
+			{
+				case 's':
+					len = _str(type);
+					i++;
+					num += len;
+					break;
+				case 'c':
+					len = _char(type);
+					i++;
+					num += len;
+					break;
+				case '%':
+					len = _mod(type);
+					i++;
+					num += len;
+					break;
+				default:
+					write(1, &format[i], 1);
+					write(1, &format[i + 1], 1);
+					i += 1;
+					num += 2;
+					break;
 			}
 		}
 		else
