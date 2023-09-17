@@ -21,24 +21,31 @@ int _printf(const char *format, ...)
 	va_start(type, format);
 
 	if (format == NULL)
-		return (0);
+		return (-1);
 
 	for (i = 0; format[i] != '\0'; i++)
 	{
-		for (j = 0; j < 4; j++)
+		if (format[i] == '%')
 		{
-			if (format[i] == '%' && format[i + 1] != '\0')
+			if (format[i + 1] != '\0')
 			{
-				if (format[i + 1] == spec[j].s)
+				for (j = 0; j < 3; j++)
 				{
-					len = spec[j].f(type);
-					i += 2;
-					num += len;
+					if (format[i + 1] == spec[j].s)
+					{
+						len = spec[j].f(type);
+						i++;
+						num += len;
+						break;
+					}
 				}
 			}
 		}
-		write(1, &format[i], 1);
-		num++;
+		else
+		{
+			write(1, &format[i], 1);
+			num++;
+		}
 	}
 	va_end(type);
 	return (num);

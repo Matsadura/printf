@@ -9,13 +9,24 @@
 int _str(va_list type)
 {
 	int i;
+	int r_value;
 	char *s = va_arg(type, char *);
 
-	for (i = 0; s[i] != '\0'; i++)
+	if (s == NULL)
 	{
-		write(1, &s[i], 1);
+		write(1, "(null)", 6);
+		r_value = 6;
+		return (r_value);
 	}
-	return (i);
+	else
+	{
+		for (i = 0; s[i] != '\0'; i++)
+		{
+			write(1, &s[i], 1);
+		}
+		r_value = i;
+	}
+	return (r_value);
 }
 
 /**
@@ -29,7 +40,8 @@ int _char(va_list type)
 	int len = 1;
 	char c = va_arg(type, int);
 
-	write(1, &c, 1);
+	if (write(1, &c, 1) < 0)
+		return (-1);
 	return (len);
 }
 
