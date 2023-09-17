@@ -39,6 +39,9 @@ int _printf(const char *format, ...)
 						num += len;
 						break;
 					default:
+						write(1, &format[i], 1);
+						write(1, &format[i + 1], 1);
+						i += 1;
 						break;
 				}
 			}
