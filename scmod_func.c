@@ -1,5 +1,4 @@
 #include "main.h"
-
 /**
  * _str - prints a string
  * @type: the argument to print
@@ -60,3 +59,4 @@ int _mod(__attribute__ ((unused)) va_list type)
 		return (-1);
 	return (len);
 }
+

@@ -15,7 +15,6 @@ int print_binary(unsigned int n)
 	unsigned int m;
 
 	m = sizeof(n) * 8;
-	printf("%d\n", n);
 	if (n == 0)
 	{
 		write(1, "0", 1);
