@@ -1,5 +1,7 @@
 #include "main.h"
 
+void test(void);
+
 /**
  * _printf - prints everything
  *
@@ -61,4 +63,11 @@ int _printf(const char *format, ...)
 	}
 	va_end(type);
 	return (num);
+}
+
+/**
+ * test - test
+ */
+void test(void)
+{
 }
