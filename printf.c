@@ -55,6 +55,14 @@ int _printf(const char *format, ...)
 					i++;
 					num += len;
 					break;
+				case 'b':
+					n = va_arg(type, unsigned int);
+					printf("%d\n", n);
+					len = print_binary(n);
+					i++;
+					num += len;
+					break;
+
 
 				default:
 					write(1, &format[i], 1);

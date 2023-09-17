@@ -25,6 +25,7 @@ int _mod(va_list type);
 int _printf(const char *format, ...);
 int print_number(int n);
 int print_number_helper(unsigned int i);
+int print_binary(unsigned int n);
 
 
 
