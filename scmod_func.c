@@ -56,6 +56,7 @@ int _mod(__attribute__ ((unused)) va_list type)
 	int len = 1;
 	char c = '%';
 
-	write(1, &c, 1);
+	if (write(1, &c, 1) < 0)
+		return (-1);
 	return (len);
 }
