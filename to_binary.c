@@ -9,23 +9,25 @@
  */
 int print_binary(unsigned int n)
 {
-	unsigned int i = 0, j = 0, len = 0;
+	int i = 0, j = 0, c = 0;
 	char *binary;
 	char tmp;
 	unsigned int m;
 
-	m = sizeof(n) * 8;
 	if (n == 0)
 	{
 		write(1, "0", 1);
-		len++;
+		return (1);
 	}
-	binary = (char *)malloc(m + 1);
-	while (n > 0)
+	for (m = n; m; c++)
+		m /= 2;
+	binary = malloc(sizeof(char) * c);
+	if (binary == NULL)
+		return (0);
+	for(i = 0; i < c; i++)
 	{
 		binary[i] = (n % 2) + '0';
 		n /= 2;
-		i++;
 	}
 	while (j < i)
 	{
@@ -35,12 +37,11 @@ int print_binary(unsigned int n)
 		j++;
 		i--;
 	}
-	for (i = 0; i < m - 1; i++)
+	for (i = 0; i < c + 1; i++)
 	{
 		write(1, &binary[i], 1);
-		len++;
 	}
 	free(binary);
-	return (len);
+	return (c);
 
 }
