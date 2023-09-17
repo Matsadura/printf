@@ -23,6 +23,8 @@ int _char(va_list type);
 int _str(va_list type);
 int _mod(va_list type);
 int _printf(const char *format, ...);
+int print_number(int n);
+int print_number_helper(unsigned int i);
 
 
 
