@@ -29,7 +29,7 @@ int _print_number(unsigned long int n, char spec, int sign)
 		m = m / base[base_c];
 	}
 
-	num_str = malloc(count + sign);
+	num_str = malloc(count + sign + 1);
 	if (num_str == NULL)
 		return (0);
 
@@ -42,6 +42,8 @@ int _print_number(unsigned long int n, char spec, int sign)
 
 	if (sign == 1)
 		num_str[0] = '-';
+
+	num_str[count + sign] = '\0';
 
 	_str_num(num_str);
 
@@ -60,13 +62,16 @@ int _print_number(unsigned long int n, char spec, int sign)
 int _number(int n, char spec)
 {
 	int sign = 0;
+	unsigned int nn;
 
 	if (n < 0)
 	{
 		sign = 1;
-		n = n * (-1);
+		nn = n * (-1);
 	}
-	return (_print_number(n, spec, sign));
+	else
+		nn = n;
+	return (_print_number(nn, spec, sign));
 }
 
 
