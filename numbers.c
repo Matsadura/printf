@@ -13,10 +13,13 @@ int _print_number(unsigned long int n, char spec, int sign)
 	unsigned long int m;
 	int count = 0, base_c = 0, index;
 	char *specifier = "dib", *num_str;
-	int base[] = {10, 10, 2};
+	int base[3] = {10, 10, 2};
 
 	if (n == 0)
-		return (write(1, "0", 1));
+	{
+		write(1, "0", 1);
+		return (1);
+	}
 
 	while (spec != specifier[base_c])
 		base_c++;
