@@ -11,6 +11,7 @@ void test(void);
 int _printf(const char *format, ...)
 {
 	int i, num = 0, len = 0, n;
+	char *string;
 	va_list type;
 
 	if (format == NULL)
@@ -83,7 +84,12 @@ int _printf(const char *format, ...)
 				i++;
 				num += len;
 				break;
-
+			case 'S':
+				string = va_arg(type, char *);
+				len = _nonprintable(string);
+				i++;
+				num += len;
+				break;
 			default:
 				write(1, &format[i], 1);
 				num++;
