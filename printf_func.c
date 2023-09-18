@@ -22,51 +22,47 @@ int _printf(const char *format, ...)
 		{
 			if (format[i + 1] == '\0')
 			{
-				write(1, &format[i], 1);
-				num++;
-				continue;
+				return (-1);
 			}
 			switch (format[i + 1])
 			{
-				case 's':
-					len = _str(type);
-					i++;
-					num += len;
-					break;
-				case 'c':
-					len = _char(type);
-					i++;
-					num += len;
-					break;
-				case '%':
-					len = _mod(type);
-					i++;
-					num += len;
-					break;
-				case 'd':
-					n = va_arg(type, int);
-					len = print_number(n);
-					i++;
-					num += len;
-					break;
-				case 'i':
-					n = va_arg(type, int);
-					len = print_number(n);
-					i++;
-					num += len;
-					break;
-				case 'b':
-					n = va_arg(type, unsigned int);
-					len = print_binary(n);
-					i++;
-					num += len;
-					break;
-
-
-				default:
-					write(1, &format[i], 1);
-					num++;
-					break;
+			case 's':
+				len = _str(type);
+				i++;
+				num += len;
+				break;
+			case 'c':
+				len = _char(type);
+				i++;
+				num += len;
+				break;
+			case '%':
+				len = _mod(type);
+				i++;
+				num += len;
+				break;
+			case 'd':
+				n = va_arg(type, int);
+				len = print_number(n);
+				i++;
+				num += len;
+				break;
+			case 'i':
+				n = va_arg(type, int);
+				len = print_number(n);
+				i++;
+				num += len;
+				break;
+			case 'b':
+				n = va_arg(type, unsigned int);
+				len = print_binary(n);
+				i++;
+				num += len;
+				break;
+			default:
+				write(1, &format[i], 1);
+				num++;
+				break;
 			}
 		}
 		else
@@ -77,11 +73,4 @@ int _printf(const char *format, ...)
 	}
 	va_end(type);
 	return (num);
-}
-
-/**
- * test - test
- */
-void test(void)
-{
 }
