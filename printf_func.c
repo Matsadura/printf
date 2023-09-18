@@ -104,6 +104,12 @@ int _printf(const char *format, ...)
 				i++;
 				num += len;
 				break;
+			case 'R':
+				string = va_arg(type, char *);
+				len = _rot13(string);
+				i++;
+				num += len;
+				break;
 			default:
 				write(1, &format[i], 1);
 				num++;
