@@ -24,7 +24,7 @@ int print_binary(unsigned int n)
 	binary = malloc(sizeof(char) * c);
 	if (binary == NULL)
 		return (0);
-	for(i = 0; i < c; i++)
+	for (i = 0; i < c; i++)
 	{
 		binary[i] = (n % 2) + '0';
 		n /= 2;
