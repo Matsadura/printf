@@ -9,7 +9,7 @@
 
 int _nonprintable(char *str)
 {
-	int len = 0, i;
+	int len = 0, i, dicimal;
 
 	if (str == NULL)
 	{
@@ -20,17 +20,21 @@ int _nonprintable(char *str)
 	{
 		for (i = 0; str[i] != '\0'; i++)
 		{
-			if (str[i] < 16)
+			dicimal = str[i];
+			if (str[i] < 32 || str[i] >= 127)
 			{
-				write(1, "\\x0", 3);
-				len += 3;
-				len += _print_number(str[i], 'X', 0);
-			}
-			else if ((str[i] >= 16 && str[i] < 32) || str[i] >= 127)
-			{
-				write(1, "\\x", 2);
-				len += 2;
-				len += _print_number(str[i], 'X', 0);
+				if (dicimal < 16)
+				{
+					write(1, "\\x0", 3);
+					len += 3;
+					len += _print_number(str[i], 'X', 0);
+				}
+				else
+				{
+					write(1, "\\x", 2);
+					len += 2;
+					len += _print_number(str[i], 'X', 0);
+				}
 			}
 			else
 			{
