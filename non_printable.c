@@ -20,7 +20,7 @@ int _nonprintable(char *str)
 	{
 		for (i = 0; str[i] != '\0'; i++)
 		{
-			if (str[i] < 15)
+			if (str[i] < 16)
 			{
 				write(1, "\\x0", 3);
 				len += 3;
