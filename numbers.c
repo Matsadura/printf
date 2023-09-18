@@ -70,7 +70,7 @@ int _number(int n, char spec)
 	int sign = 0;
 	unsigned int nn;
 
-	if (n < 0)
+	if (n < 0 && (spec == 'd' || spec == 'i'))
 	{
 		sign = 1;
 		nn = -n;
