@@ -13,7 +13,7 @@ int _nonprintable(char *str)
 
 	if (str == NULL)
 	{
-		return(write(1, "(null)", 6));
+		return (write(1, "(null)", 6));
 	}
 	else
 	{
