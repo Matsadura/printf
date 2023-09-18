@@ -1,5 +1,6 @@
 #include "main.h"
 
+void test1(void);
 /**
  * _print_number - prints the number and the sign
  * @n: the number
@@ -12,8 +13,8 @@ int _print_number(unsigned long int n, char spec, int sign)
 {
 	unsigned long int m;
 	int count = 0, base_c = 0, index;
-	char *specifier = "di", *num_str;
-	int base[3] = {10, 10};
+	char *specifier = "diuoxX", *num_str;
+	int base[6] = {10, 10, 10, 8, 16, 16};
 
 	if (n == 0)
 	{
@@ -36,7 +37,12 @@ int _print_number(unsigned long int n, char spec, int sign)
 	for (index = count + sign - 1; index >= 0; index--)
 	{
 		m = n % base[base_c];
-		num_str[index] = '0' + m;
+		if (spec == 'x' && m >= 10)
+			num_str[index] = 'a' + m - 10;
+		else if (spec == 'X' && m >= 10)
+			num_str[index] = 'A' + m - 10;
+		else
+			num_str[index] = '0' + m;
 		n = n / base[base_c];
 	}
 
@@ -75,7 +81,7 @@ int _number(int n, char spec)
 }
 
 /**
- * print_binary - prints int as a bianry string
+ * _print_binary - prints int as a bianry string
  *
  * @n:  given number as unsigned int
  *
@@ -98,7 +104,7 @@ int _print_binary(unsigned int n)
 	binary = malloc(sizeof(char) * c);
 	if (binary == NULL)
 		return (0);
-	for(i = 0; i < c; i++)
+	for (i = 0; i < c; i++)
 	{
 		binary[i] = (n % 2) + '0';
 		n /= 2;

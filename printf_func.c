@@ -59,6 +59,31 @@ int _printf(const char *format, ...)
 				i++;
 				num += len;
 				break;
+			case 'u':
+				n = va_arg(type, unsigned int);
+				len = _number(n, 'u');
+				i++;
+				num += len;
+				break;
+			case 'o':
+				n = va_arg(type, unsigned int);
+				len = _number(n, 'o');
+				i++;
+				num += len;
+				break;
+			case 'x':
+				n = va_arg(type, unsigned int);
+				len = _number(n, 'x');
+				i++;
+				num += len;
+				break;
+			case 'X':
+				n = va_arg(type, unsigned int);
+				len = _number(n, 'X');
+				i++;
+				num += len;
+				break;
+
 			default:
 				write(1, &format[i], 1);
 				num++;
