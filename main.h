@@ -29,6 +29,7 @@ int _print_number(unsigned long int n, char spec, int sign);
 int _print_binary(unsigned int n);
 int _nonprintable(char *str);
 int pointer_print(void *pointer);
+int reverse_print(char *s);
 
 
 #endif
