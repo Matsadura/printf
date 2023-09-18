@@ -12,6 +12,7 @@ int _printf(const char *format, ...)
 {
 	int i, num = 0, len = 0, n;
 	char *string;
+	char *pointer;
 	va_list type;
 
 	if (format == NULL)
@@ -87,6 +88,12 @@ int _printf(const char *format, ...)
 			case 'S':
 				string = va_arg(type, char *);
 				len = _nonprintable(string);
+				i++;
+				num += len;
+				break;
+			case 'p':
+				pointer = va_arg(type, char *);
+				len = pointer_print(pointer);
 				i++;
 				num += len;
 				break;
