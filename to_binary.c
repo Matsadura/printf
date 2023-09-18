@@ -19,7 +19,7 @@ int print_binary(unsigned int n)
 		write(1, "0", 1);
 		return (1);
 	}
-	for (m = n; m; c++)
+	for (m = n; m != 0; c++)
 		m /= 2;
 	binary = malloc(sizeof(char) * c);
 	if (binary == NULL)
@@ -29,6 +29,7 @@ int print_binary(unsigned int n)
 		binary[i] = (n % 2) + '0';
 		n /= 2;
 	}
+	i--;
 	while (j < i)
 	{
 		tmp = binary[j];
@@ -37,7 +38,7 @@ int print_binary(unsigned int n)
 		j++;
 		i--;
 	}
-	for (i = 0; i < c + 1; i++)
+	for (i = 0; i < c; i++)
 	{
 		write(1, &binary[i], 1);
 	}
