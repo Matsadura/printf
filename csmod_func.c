@@ -60,3 +60,31 @@ int _mod(__attribute__ ((unused)) va_list type)
 	return (len);
 }
 
+
+/**
+ * _str_num - prints a string
+ * @s: the argument to print
+ * Return: len
+ */
+
+int _str_num(char *s)
+{
+	int i;
+	int r_value;
+
+	if (s == NULL)
+	{
+		write(1, "(null)", 6);
+		r_value = 6;
+		return (r_value);
+	}
+	else
+	{
+		for (i = 0; s[i] != '\0'; i++)
+		{
+			write(1, &s[i], 1);
+		}
+		r_value = i;
+	}
+	return (r_value);
+}
