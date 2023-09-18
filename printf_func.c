@@ -55,7 +55,7 @@ int _printf(const char *format, ...)
 				break;
 			case 'b':
 				n = va_arg(type, unsigned int);
-				len = _number(n, 'b');
+				len = _print_binary(n);
 				i++;
 				num += len;
 				break;
