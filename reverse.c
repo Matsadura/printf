@@ -10,26 +10,22 @@
 
 int reverse_print(char *s)
 {
-	int i, j = 0;
-	char *s2;
+	int i = 0;
 	int len = 0;
 
 	if (s == NULL)
 		return (write(1, "(null)", 6));
-	for (i = 0; s[i];)
+	for (; s[i];)
 		i++;
 
-	s2 = malloc(sizeof(char) * i);
-	while (i + 1)
+	i--;
+	while (i >= 0)
 	{
-		s2[j] = s[i];
-		len += write(1, &s2[j], 1);
-		j++;
+		len += write(1, &s[i], 1);
 		i--;
 
 	}
-	free(s2);
-	return (len - 1);
+	return (len);
 
 
 
