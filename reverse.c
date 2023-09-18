@@ -11,22 +11,18 @@
 int reverse_print(char *s)
 {
 	int i = 0;
-	int len = 0;
+	int length = 0;
 
 	if (s == NULL)
-		return (write(1, "(null)", 6));
-	for (; s[i];)
-		i++;
+		return (0);
 
-	i--;
-	while (i >= 0)
+	while (s[i] != '\0')
 	{
-		len += write(1, &s[i], 1);
-		i--;
-
+		i++;
+		length = i;
 	}
-	return (len);
 
-
-
+	for (i = length - 1; i >=0; i--)
+		write(1, &s[i], 1);
+	return (length);
 }

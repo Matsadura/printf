@@ -13,6 +13,7 @@ int _printf(const char *format, ...)
 	int i, num = 0, len = 0, n;
 	char *string;
 	char *pointer;
+	char *reverse;
 	va_list type;
 
 	if (format == NULL)
@@ -94,6 +95,12 @@ int _printf(const char *format, ...)
 			case 'p':
 				pointer = va_arg(type, char *);
 				len = pointer_print(pointer);
+				i++;
+				num += len;
+				break;
+			case 'r':
+				reverse = va_arg(type, char *);
+				len = reverse_print(reverse);
 				i++;
 				num += len;
 				break;
