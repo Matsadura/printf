@@ -43,19 +43,19 @@ int _printf(const char *format, ...)
 				break;
 			case 'd':
 				n = va_arg(type, int);
-				len = print_number(n);
+				len = _number(n, 'd');
 				i++;
 				num += len;
 				break;
 			case 'i':
 				n = va_arg(type, int);
-				len = print_number(n);
+				len = _number(n, 'i');
 				i++;
 				num += len;
 				break;
 			case 'b':
 				n = va_arg(type, unsigned int);
-				len = print_binary(n);
+				len = _number(n, 'b');
 				i++;
 				num += len;
 				break;

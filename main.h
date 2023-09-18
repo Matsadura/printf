@@ -21,12 +21,11 @@ typedef struct format
 
 int _char(va_list type);
 int _str(va_list type);
+int _str_num(char *s);
 int _mod(va_list type);
 int _printf(const char *format, ...);
-int print_number(int n);
-int print_number_helper(unsigned int i);
-int print_binary(unsigned int n);
-
+int _number(int n, char spec);
+int _print_number(unsigned long int n, char spec, int sign);
 
 
 #endif
