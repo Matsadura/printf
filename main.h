@@ -27,6 +27,7 @@ int _printf(const char *format, ...);
 int _number(int n, char spec);
 int _print_number(unsigned long int n, char spec, int sign);
 int _print_binary(unsigned int n);
+int _nonprintable(char *str);
 
 
 #endif
