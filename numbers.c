@@ -67,7 +67,7 @@ int _number(int n, char spec)
 	if (n < 0)
 	{
 		sign = 1;
-		nn = n * (-1);
+		nn = -n;
 	}
 	else
 		nn = n;
