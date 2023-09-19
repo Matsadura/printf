@@ -14,6 +14,8 @@ int _printf(const char *format, ...)
 	char *string;
 	char *pointer;
 	char *reverse;
+	int sign_number;
+	int space_number;
 	va_list type;
 
 	if (format == NULL)
@@ -71,8 +73,7 @@ int _printf(const char *format, ...)
 			case 'o':
 				n = va_arg(type, unsigned int);
 				len = _number(n, 'o');
-				i++;
-				num += len;
+
 				break;
 			case 'x':
 				n = va_arg(type, unsigned int);
@@ -104,6 +105,27 @@ int _printf(const char *format, ...)
 				i++;
 				num += len;
 				break;
+			case 'R':
+				string = va_arg(type, char *);
+				len = _rot13(string);
+				i++;
+				num += len;
+				break;
+
+			case '+':
+				sign_number = va_arg(type, int);
+				len = _number(sign_number, format[i + 2]);
+				i += 2;
+				num += len;
+				break;
+			case ' ':
+				space_number = va_arg(type, int);
+				write(1, " ", 1);
+				len = _number(space_number, format[i + 2]);
+				i += 2;
+				num += len + 1;
+				break;
+
 			default:
 				write(1, &format[i], 1);
 				num++;
