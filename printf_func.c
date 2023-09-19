@@ -14,7 +14,6 @@ int _printf(const char *format, ...)
 	char *string;
 	char *pointer;
 	char *reverse;
-	int sign_number;
 	va_list type;
 
 	if (format == NULL)
@@ -103,12 +102,6 @@ int _printf(const char *format, ...)
 				reverse = va_arg(type, char *);
 				len = reverse_print(reverse);
 				i++;
-				num += len;
-				break;
-			case '+':
-				sign_number = va_arg(type, int);
-				len = _number(sign_number, format[i + 2]);
-				i += 2;
 				num += len;
 				break;
 			default:

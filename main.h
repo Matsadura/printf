@@ -30,6 +30,7 @@ int _print_binary(unsigned int n);
 int _nonprintable(char *str);
 int pointer_print(void *pointer);
 int reverse_print(char *s);
+int _rot13(char *s);
 
 
 #endif
