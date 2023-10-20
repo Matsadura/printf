@@ -64,4 +64,3 @@ Oumaima NAANAA & Zidane ZAOUI
 [Simple Shell](https://github.com/Matsadura/simple_shell)
 
 [ALX Time Saver](https://github.com/Matsadura/ALX_Time_Saver)
-Please refer to the individual task files for specific details and examples of how to use each feature.
