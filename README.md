@@ -64,3 +64,7 @@ Oumaima NAANAA & Zidane ZAOUI
 [Simple Shell](https://github.com/Matsadura/simple_shell)
 
 [ALX Time Saver](https://github.com/Matsadura/ALX_Time_Saver)
+
+[ALX Planning Tracker](https://github.com/Matsadura/ALX_Holberton-Planning-Tracker)
+
+[Monty Language Interpreter](https://github.com/Matsadura/monty)
